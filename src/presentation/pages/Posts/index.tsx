@@ -1,8 +1,8 @@
-import React from "react";
-import { PostCard } from "presentation/components";
-import { IPostCard } from "presentation/components/PostCard/models";
-import { posts } from "./mocks.json";
-import * as S from "./styles";
+import React from 'react'
+import { PostCard } from 'presentation/components'
+import { IPostCard } from 'presentation/components/PostCard/models'
+import { posts } from './mocks.json'
+import * as S from './styles'
 
 const Posts: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const Posts: React.FC = () => {
         ))}
       </S.List>
     </S.Container>
-  );
-};
+  )
+}
 
-export default Posts;
+export default Posts

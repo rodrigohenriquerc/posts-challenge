@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
@@ -8,14 +8,14 @@ export const Container = styled.div`
   align-items: center;
   padding: 1rem;
   padding-bottom: 0;
-  background-color: #0D122B;
-`;
+  background-color: #0d122b;
+`
 
 export const List = styled.ul`
   max-width: 768px;
-`;
+`
 
 export const ListItem = styled.li`
   list-style: none;
   margin-bottom: 1rem;
-`;
+`

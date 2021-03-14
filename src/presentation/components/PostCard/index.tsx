@@ -1,6 +1,6 @@
-import React from "react";
-import { IPostCard } from "./models";
-import * as S from "./styles";
+import React from 'react'
+import { IPostCard } from './models'
+import * as S from './styles'
 
 const PostCard: React.FC<IPostCard> = ({
   author,
@@ -16,7 +16,7 @@ const PostCard: React.FC<IPostCard> = ({
       <S.Title>{title}</S.Title>
       <S.Description>{description}</S.Description>
     </S.Container>
-  );
-};
+  )
+}
 
-export default PostCard;
+export default PostCard
