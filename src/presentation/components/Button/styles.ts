@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { AiFillMessage } from 'react-icons/ai'
 
-export const Container = styled.button`
+export const Container = styled.button<{ onClick: () => void }>`
   background-color: transparent;
   border-width: 0;
   color: #ffffff;
