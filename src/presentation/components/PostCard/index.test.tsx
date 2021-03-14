@@ -5,12 +5,14 @@ import { IPostCard } from './models'
 describe('PostCard', () => {
   it('should render with author, title and description', () => {
     const props: IPostCard = {
+      id: 1,
       author: 'Rodrigo Henrique',
       title: 'random_title',
       description: 'random_description',
     }
     const { getByTestId } = render(
       <PostCard
+        id={props.id}
         author={props.author}
         title={props.title}
         description={props.description}
