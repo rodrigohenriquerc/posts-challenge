@@ -1,5 +1,3 @@
-export interface IPostCard {
-  author: string
-  title: string
-  description: string
-}
+import { Post } from 'domains/posts/models'
+
+export interface IPostCard extends Omit<Post, 'comments'> {}

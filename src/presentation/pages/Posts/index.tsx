@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { PostCard } from 'presentation/components'
 import { IPostCard } from 'presentation/components/PostCard/models'
-import response from 'data/http/services/posts/getPosts/response.json'
+import * as PostsHooks from 'presentation/hooks/posts'
 import * as S from './styles'
 
 const Posts: React.FC = () => {
+  const { getPosts } = PostsHooks.usePostsDispatch()
+  const { data } = PostsHooks.usePostsSelector()
+
+  useEffect(() => getPosts(), [])
+
   return (
     <S.Container>
       <S.List>
-        {response.map((post: IPostCard) => (
-          <S.ListItem>
+        {data.map((post: IPostCard) => (
+          <S.ListItem key={post.id}>
             <PostCard
+              id={post.id}
               author={post.author}
               title={post.title}
               description={post.description}
