@@ -8,7 +8,7 @@ const PostCard: React.FC<IPostCard> = ({
   description,
 }: IPostCard) => {
   return (
-    <S.Container>
+    <S.Container data-testid="post-card">
       <S.ContainerAuthor>
         <S.By>Por</S.By>
         <S.Author>{author}</S.Author>
