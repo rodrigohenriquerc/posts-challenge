@@ -4,7 +4,7 @@ import App from './main/App'
 import reportWebVitals from './reportWebVitals'
 
 if (process.env.NODE_ENV === 'development') {
-  const { worker } = require('./data/http/mock/browser')
+  const { worker } = require('./data/http/mocks/browser')
   worker.start()
 }
 
