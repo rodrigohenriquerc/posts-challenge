@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100%;
+  width: 90%;
 `
 
 export const Author = styled.h3`
@@ -12,4 +12,5 @@ export const Author = styled.h3`
 
 export const Description = styled.p`
   color: #ffffff;
+  line-height: 1.5rem;
 `
