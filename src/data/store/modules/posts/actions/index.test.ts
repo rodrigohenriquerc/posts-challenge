@@ -1,4 +1,4 @@
-import * as Actions from "./actions";
+import * as Actions from ".";
 import { ActionTypes } from "../types";
 import { Post } from "../../../../../domains/posts/models/Post";
 
