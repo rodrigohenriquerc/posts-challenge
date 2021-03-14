@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'presentation/components'
 import { IPostCard } from './models'
 import * as S from './styles'
 
@@ -15,6 +16,7 @@ const PostCard: React.FC<IPostCard> = ({
       </S.ContainerAuthor>
       <S.Title>{title}</S.Title>
       <S.Description>{description}</S.Description>
+      <Button title="Comentários" />
     </S.Container>
   )
 }
