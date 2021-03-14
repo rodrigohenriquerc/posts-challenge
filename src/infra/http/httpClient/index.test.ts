@@ -1,6 +1,7 @@
 import axios from 'axios'
 import faker from 'faker'
 import { HttpRequest } from 'data/http/protocol'
+import { handleHttpError } from 'data/http/error'
 import { httpClient } from '.'
 
 jest.mock('axios', () => ({
@@ -44,5 +45,17 @@ describe('httpClient', () => {
     const axiosResponse = await mockedAxios.request.mock.results[0].value
     expect(response.statusCode).toBe(axiosResponse.status)
     expect(response.data).toBe(axiosResponse.data)
+  })
+  it('should handle error', () => {
+    const request = mockRequest()
+    const mockedAxios = mockAxios()
+    const status = faker.random.number()
+    mockedAxios.request.mockRejectedValueOnce({
+      response: {
+        status,
+      },
+    })
+    const promise = httpClient(request)
+    expect(promise).rejects.toThrowError(handleHttpError(status))
   })
 })
