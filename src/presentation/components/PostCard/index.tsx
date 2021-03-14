@@ -4,16 +4,17 @@ import * as S from "./styles";
 
 const PostCard: React.FC<IPostCard> = ({
   author,
-  avatar,
   title,
   description,
-  image,
 }: IPostCard) => {
   return (
     <S.Container>
-      <p>{author}</p>
+      <S.ContainerAuthor>
+        <S.By>Por</S.By>
+        <S.Author>{author}</S.Author>
+      </S.ContainerAuthor>
       <S.Title>{title}</S.Title>
-      <p>{description}</p>
+      <S.Description>{description}</S.Description>
     </S.Container>
   );
 };

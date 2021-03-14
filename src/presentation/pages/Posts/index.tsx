@@ -12,10 +12,8 @@ const Posts: React.FC = () => {
           <S.ListItem>
             <PostCard
               author={post.author}
-              avatar={post.avatar}
               title={post.title}
               description={post.description}
-              image={post.image}
             />
           </S.ListItem>
         ))}
