@@ -3,7 +3,10 @@ import * as S from './styles'
 import { IButton } from './models'
 
 const Button: React.FC<IButton> = ({ title }: IButton) => (
-  <S.Container>{title}</S.Container>
+  <S.Container>
+    {title}
+    <S.Icon />
+  </S.Container>
 )
 
 export default Button
