@@ -1,8 +1,8 @@
 export type Data = Post[]
 
 export interface Post {
-  userId: number
   id: number
+  author: string
   title: string
-  body: string
+  description: string
 }
