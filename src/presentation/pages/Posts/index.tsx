@@ -1,14 +1,14 @@
 import React from 'react'
 import { PostCard } from 'presentation/components'
 import { IPostCard } from 'presentation/components/PostCard/models'
-import { posts } from './mocks.json'
+import response from 'data/http/services/posts/getPosts/response.json'
 import * as S from './styles'
 
 const Posts: React.FC = () => {
   return (
     <S.Container>
       <S.List>
-        {posts.map((post: IPostCard) => (
+        {response.map((post: IPostCard) => (
           <S.ListItem>
             <PostCard
               author={post.author}
