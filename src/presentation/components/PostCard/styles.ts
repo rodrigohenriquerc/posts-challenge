@@ -42,3 +42,14 @@ export const CommentsSection = styled.div`
   width: 100%;
   padding-top: 1rem;
 `
+
+export const ListItem = styled.li`
+  list-style: none;
+`
+
+export const Division = styled.div<{ isFirst: boolean }>`
+  width: 100%;
+  height: ${({ isFirst }) => (isFirst ? 0 : '1px')};
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: ${({ isFirst }) => (isFirst ? 0 : '1.5rem')} auto;
+`
