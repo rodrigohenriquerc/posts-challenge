@@ -1,6 +1,5 @@
 import { call, put } from 'redux-saga/effects'
 import { GetPostsSaga } from '.'
-import { ActionTypes, RequestAction } from '../types'
 import * as Actions from '../actions'
 import { httpClient } from 'infra/http/httpClient'
 import { Data, getPosts } from 'data/http/services'

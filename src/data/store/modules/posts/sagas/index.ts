@@ -7,7 +7,7 @@ import { getPosts } from 'data/http/services'
 export function* GetPostsSaga() {
   try {
     const data = yield call(getPosts, httpClient)
-    yield put(Actions.GetPostsSuccess({ ...data, comments: [] }))
+    yield put(Actions.GetPostsSuccess(data))
   } catch (error) {
     yield put(Actions.GetPostsFailure(error.message))
   }
