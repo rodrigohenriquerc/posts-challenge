@@ -37,4 +37,12 @@ describe('httpClient', () => {
       headers: request.headers,
     })
   })
+  it('should return the response correctly', async () => {
+    const request = mockRequest()
+    const mockedAxios = mockAxios()
+    const response = await httpClient(request)
+    const axiosResponse = await mockedAxios.request.mock.results[0].value
+    expect(response.statusCode).toBe(axiosResponse.status)
+    expect(response.data).toBe(axiosResponse.data)
+  })
 })
