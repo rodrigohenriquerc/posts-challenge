@@ -1,4 +1,4 @@
-import { GetPosts } from "../../../../../domains/posts/usecases";
+import { GetPosts } from "domains/posts/usecases";
 import {
   ActionTypes,
   RequestAction,

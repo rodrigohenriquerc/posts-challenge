@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-redeclare */
-import { Post } from "../models/Post";
+import { Post } from "domains/posts/models";
 
 export type GetPosts = () => Promise<GetPosts.Data>;
 

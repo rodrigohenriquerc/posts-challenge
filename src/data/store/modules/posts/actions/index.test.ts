@@ -1,6 +1,6 @@
 import * as Actions from ".";
 import { ActionTypes } from "../types";
-import { Post } from "../../../../../domains/posts/models";
+import { Post } from "domains/posts/models";
 
 describe("Request action", () => {
   it("should return the right type", () => {

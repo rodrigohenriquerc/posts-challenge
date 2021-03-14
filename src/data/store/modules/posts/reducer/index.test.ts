@@ -5,7 +5,7 @@ import {
   SuccessAction,
   FailureAction,
 } from "../types";
-import { Post } from "../../../../../domains/posts/models";
+import { Post } from "domains/posts/models";
 
 describe("PostsReducer", () => {
   it("should return default state", () => {

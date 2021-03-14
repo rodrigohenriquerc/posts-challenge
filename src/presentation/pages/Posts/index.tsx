@@ -1,6 +1,6 @@
 import React from "react";
-import { PostCard } from "../../components";
-import { IPostCard } from "../../components/PostCard/models";
+import { PostCard } from "presentation/components";
+import { IPostCard } from "presentation/components/PostCard/models";
 import { posts } from "./mocks.json";
 import * as S from "./styles";
 

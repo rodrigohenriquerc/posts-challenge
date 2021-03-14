@@ -1,5 +1,5 @@
-import { Post } from "../../../../domains/posts/models";
-import { GetPosts } from "../../../../domains/posts/usecases";
+import { Post } from "domains/posts/models";
+import { GetPosts } from "domains/posts/usecases";
 
 export enum ActionTypes {
   GET_POSTS_REQUEST = "GET_POSTS_REQUEST",
