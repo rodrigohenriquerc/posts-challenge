@@ -1,5 +1,7 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
   extends: ['airbnb', 'airbnb/hooks'],
+  plugins: ['prettier', 'react', 'jsx-a11y', 'react-hooks'],
   rules: {
     semi: 0,
     'import/no-unresolved': 0,
@@ -9,5 +11,13 @@ module.exports = {
     'arrow-body-style': 0,
     'import/prefer-default-export': 0,
     'object-curly-newline': 0,
+    'no-shadow': 0,
+    'no-unused-vars': 0,
+    'no-use-before-define': 0,
+    'react-hooks/exhaustive-deps': 0,
+    'require-yield': 0,
+    'import/no-extraneous-dependencies': 0,
+    'import/order': 0,
+    'global-require': 0,
   },
 }
