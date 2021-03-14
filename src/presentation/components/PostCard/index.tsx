@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Comment } from 'presentation/components'
 import { IPostCard } from './models'
+import comments from './mocks.json'
 import * as S from './styles'
 
 const PostCard: React.FC<IPostCard> = ({
@@ -18,11 +19,16 @@ const PostCard: React.FC<IPostCard> = ({
       <S.Description>{description}</S.Description>
       <Button title="Comentários" />
       <S.CommentsSection>
-        <Comment
-          id={1}
-          author="Tayanne Fernandes"
-          description="Eu gostei muito desse post!"
-        />
+        {comments.map((comment, i) => (
+          <S.ListItem key={comment.id}>
+            <S.Division isFirst={i === 0} />
+            <Comment
+              id={comment.id}
+              author={comment.author}
+              description={comment.description}
+            />
+          </S.ListItem>
+        ))}
       </S.CommentsSection>
     </S.Container>
   )
