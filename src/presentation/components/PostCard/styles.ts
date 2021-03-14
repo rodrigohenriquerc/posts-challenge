@@ -37,3 +37,8 @@ export const Description = styled.p`
   font-weight: 300;
   line-height: 1.5rem;
 `
+
+export const CommentsSection = styled.div`
+  width: 100%;
+  padding-top: 1rem;
+`

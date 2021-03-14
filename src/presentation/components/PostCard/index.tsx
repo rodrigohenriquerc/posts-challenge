@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'presentation/components'
+import { Button, Comment } from 'presentation/components'
 import { IPostCard } from './models'
 import * as S from './styles'
 
@@ -17,6 +17,13 @@ const PostCard: React.FC<IPostCard> = ({
       <S.Title>{title}</S.Title>
       <S.Description>{description}</S.Description>
       <Button title="Comentários" />
+      <S.CommentsSection>
+        <Comment
+          id={1}
+          author="Tayanne Fernandes"
+          description="Eu gostei muito desse post!"
+        />
+      </S.CommentsSection>
     </S.Container>
   )
 }
