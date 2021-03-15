@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Form,
   TextField,
@@ -6,15 +6,27 @@ import {
   PostCard,
   Loading,
 } from 'presentation/components'
-import { IPostCard } from 'presentation/components/PostCard/models'
 import * as PostsHooks from 'presentation/hooks/posts'
+import * as CommentsHooks from 'presentation/hooks/comments'
 import * as S from './styles'
 
 const Posts: React.FC = () => {
-  const { getPosts } = PostsHooks.usePostsDispatch()
   const { data, isLoading } = PostsHooks.usePostsSelector()
+  const { getPosts } = PostsHooks.usePostsDispatch()
+  const { getComments } = CommentsHooks.useCommentsDispatch()
 
   useEffect(() => getPosts(), [])
+
+  const [openPostId, setOpenPostId] = useState<number | null>(null)
+
+  const loadComments = (postId: number) => {
+    if (postId !== openPostId) {
+      getComments(postId)
+      setOpenPostId(postId)
+    } else {
+      setOpenPostId(null)
+    }
+  }
 
   return (
     <S.Container isLoading={isLoading}>
@@ -28,13 +40,16 @@ const Posts: React.FC = () => {
             <Button title="Enviar" onClick={() => {}} />
           </Form>
           <S.List>
-            {data.map((post: IPostCard) => (
+            {data.map((post) => (
               <S.ListItem key={post.id}>
                 <PostCard
                   id={post.id}
                   author={post.author}
                   title={post.title}
                   description={post.description}
+                  comments={post.comments}
+                  onLoadComments={loadComments}
+                  openPostId={openPostId}
                 />
               </S.ListItem>
             ))}

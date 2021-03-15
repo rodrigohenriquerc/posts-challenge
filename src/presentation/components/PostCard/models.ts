@@ -1,3 +1,11 @@
-import { Post } from 'domains/posts/models'
+import { Comment } from 'domains/posts/models'
 
-export interface IPostCard extends Omit<Post, 'comments'> {}
+export interface IPostCard {
+  id: number
+  author: string
+  title: string
+  description: string
+  comments: Comment[]
+  onLoadComments: (id: number) => void
+  openPostId: number | null
+}

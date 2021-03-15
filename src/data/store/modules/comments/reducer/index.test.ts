@@ -28,6 +28,7 @@ describe('CommentsReducer', () => {
   it('should handle success action', () => {
     const comment: Comment = {
       id: 1,
+      postId: 5,
       author: 'Tayanne Fernandes',
       description: 'random_description',
     }

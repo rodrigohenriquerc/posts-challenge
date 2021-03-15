@@ -1,9 +1,10 @@
-import { GetPosts } from 'domains/posts/usecases'
+import { GetComments, GetPosts } from 'domains/posts/usecases'
 import {
   ActionTypes,
   RequestAction,
   SuccessAction,
   FailureAction,
+  LoadCommentsAction,
 } from '../types'
 
 export function GetPostsRequest(): RequestAction {
@@ -23,5 +24,15 @@ export function GetPostsFailure(error: string): FailureAction {
   return {
     type: ActionTypes.GET_POSTS_FAILURE,
     payload: { error },
+  }
+}
+
+export function LoadComments(
+  postId: number,
+  data: GetComments.Data
+): LoadCommentsAction {
+  return {
+    type: ActionTypes.LOAD_COMMENTS,
+    payload: { postId, data },
   }
 }

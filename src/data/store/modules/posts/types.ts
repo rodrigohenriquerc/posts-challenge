@@ -1,10 +1,11 @@
 import { Post } from 'domains/posts/models'
-import { GetPosts } from 'domains/posts/usecases'
+import { GetComments, GetPosts } from 'domains/posts/usecases'
 
 export enum ActionTypes {
   GET_POSTS_REQUEST = 'GET_POSTS_REQUEST',
   GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS',
   GET_POSTS_FAILURE = 'GET_POSTS_FAILURE',
+  LOAD_COMMENTS = 'LOAD_COMMENTS',
 }
 
 export interface RequestAction {
@@ -21,7 +22,16 @@ export interface FailureAction {
   payload: { error: string }
 }
 
-export type Action = RequestAction | SuccessAction | FailureAction
+export interface LoadCommentsAction {
+  type: ActionTypes.LOAD_COMMENTS
+  payload: { postId: number; data: GetComments.Data }
+}
+
+export type Action =
+  | RequestAction
+  | SuccessAction
+  | FailureAction
+  | LoadCommentsAction
 
 export interface PostsState {
   data: Post[]

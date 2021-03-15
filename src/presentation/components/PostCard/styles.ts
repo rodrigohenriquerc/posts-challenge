@@ -48,6 +48,10 @@ export const CommentsSection = styled.div`
   padding-top: 1rem;
 `
 
+export const List = styled.ul`
+  width: 100%;
+`
+
 export const ListItem = styled.li`
   list-style: none;
 `

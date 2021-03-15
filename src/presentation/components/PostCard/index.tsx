@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Comment } from 'presentation/components'
 import { IPostCard } from './models'
-import comments from './mocks.json'
 import * as S from './styles'
 
 const PostCard: React.FC<IPostCard> = ({
+  id,
   author,
   title,
   description,
+  comments,
+  onLoadComments,
+  openPostId,
 }: IPostCard) => {
-  const [isCommentsSectionOpen, setIsCommentsSectionOpen] = useState(false)
   return (
     <S.Container data-testid="post-card">
       <S.ContainerAuthor>
@@ -22,20 +24,22 @@ const PostCard: React.FC<IPostCard> = ({
         title="Comentários"
         type="ghost"
         icon={<S.Icon />}
-        onClick={() => setIsCommentsSectionOpen(!isCommentsSectionOpen)}
+        onClick={() => onLoadComments(id)}
       />
-      {isCommentsSectionOpen ? (
+      {id === openPostId ? (
         <S.CommentsSection>
-          {comments.map((comment, i) => (
-            <S.ListItem key={comment.id}>
-              <S.Division isFirst={i === 0} />
-              <Comment
-                id={comment.id}
-                author={comment.author}
-                description={comment.description}
-              />
-            </S.ListItem>
-          ))}
+          <S.List>
+            {comments.map((comment, i) => (
+              <S.ListItem key={comment.id}>
+                <S.Division isFirst={i === 0} />
+                <Comment
+                  id={comment.id}
+                  author={comment.author}
+                  description={comment.description}
+                />
+              </S.ListItem>
+            ))}
+          </S.List>
         </S.CommentsSection>
       ) : null}
     </S.Container>

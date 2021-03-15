@@ -19,6 +19,7 @@ describe('Success action', () => {
     const data: Comment[] = [
       {
         id: 1,
+        postId: 5,
         author: 'Tayanne Fernandes',
         description: 'random_description',
       },

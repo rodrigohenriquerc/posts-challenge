@@ -1,14 +1,18 @@
+import React from 'react'
 import { render } from '@testing-library/react'
 import PostCard from './index'
 import { IPostCard } from './models'
 
 describe('PostCard', () => {
   it('should render with author, title and description', () => {
+    const mockFn = jest.fn()
     const props: IPostCard = {
       id: 1,
       author: 'Rodrigo Henrique',
       title: 'random_title',
       description: 'random_description',
+      comments: [],
+      onLoadComments: mockFn,
     }
     const { getByTestId } = render(
       <PostCard
@@ -16,6 +20,8 @@ describe('PostCard', () => {
         author={props.author}
         title={props.title}
         description={props.description}
+        comments={props.comments}
+        onLoadComments={props.onLoadComments}
       />
     )
     const component = getByTestId('post-card')

@@ -17,7 +17,7 @@ const PostsReducer = (state = INITIAL_STATE, action: Action) => {
     case ActionTypes.GET_POSTS_SUCCESS:
       return {
         ...state,
-        data: action.payload.data,
+        data: action.payload.data.map((post) => ({ ...post, comments: [] })),
         error: null,
         isLoading: false,
       }
@@ -25,6 +25,18 @@ const PostsReducer = (state = INITIAL_STATE, action: Action) => {
       return {
         ...state,
         error: action.payload.error,
+        isLoading: false,
+      }
+    case ActionTypes.LOAD_COMMENTS:
+      return {
+        ...state,
+        data: state.data.map((post) => {
+          if (post.id === action.payload.postId) {
+            return { ...post, comments: action.payload.data }
+          }
+          return post
+        }),
+        error: null,
         isLoading: false,
       }
     default:

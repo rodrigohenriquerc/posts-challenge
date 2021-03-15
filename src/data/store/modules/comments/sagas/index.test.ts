@@ -6,6 +6,8 @@ import { getComments, GetCommentsProtocol } from 'data/http/services'
 import { HttpRequest, HttpResponse, StatusCode } from 'data/http/protocol'
 import { ActionTypes, RequestAction } from '../types'
 import { GetComments } from 'domains/posts/usecases'
+import { LoadComments } from '../../posts/actions'
+import { adaptData } from './Adapter'
 
 const params: GetComments.Params = { postId: 1 }
 const action: RequestAction = {
@@ -41,6 +43,7 @@ describe('GetCommentsSaga', () => {
     const newData: GetComments.Data = data.map(
       (item: GetCommentsProtocol.Comment) => ({
         id: item.id,
+        postId: item.postId,
         author: item.name,
         description: item.body,
       })
@@ -48,7 +51,9 @@ describe('GetCommentsSaga', () => {
     expect(saga.next(data).value).toStrictEqual(
       put(Actions.GetCommentsSuccess(newData))
     )
-    expect(saga.next().done).toBe(true)
+    expect(saga.next().value).toStrictEqual(
+      put(LoadComments(params.postId, adaptData(data)))
+    )
   })
   it('should call failure action when receives error', () => {
     const saga = mockSaga()
