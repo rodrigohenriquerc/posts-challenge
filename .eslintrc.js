@@ -20,5 +20,6 @@ module.exports = {
     'import/order': 0,
     'global-require': 0,
     'no-undef': 0,
+    'no-redeclare': 0,
   },
 }
