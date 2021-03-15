@@ -6,18 +6,26 @@ interface IStyledButton {
   buttonType?: ButtonType
   onClick: () => void
 }
-const getGhostButtonStyles = () => `
-  background-color: transparent;
-  margin-top: 1rem;
-  font-weight: 600;
-`
 
-export const Container = styled.button<IStyledButton>`
+const getDefaultButtonStyles = () => `
   width: 100%;
   height: 3rem;
   margin-top: 1rem;
   border-radius: 8px;
   background-color: #252b3b;
+  font-weight: 600;
+  &:hover {
+    background-color: #181f3c;
+  }
+`
+
+const getGhostButtonStyles = () => `
+  background-color: transparent;
+  margin-top: 1rem;
+  font-weight: 500;
+`
+
+export const Container = styled.button<IStyledButton>`
   border: none;
   padding: 0;
   outline: none;
@@ -26,12 +34,11 @@ export const Container = styled.button<IStyledButton>`
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   font-size: 1rem;
-  font-weight: 600;
   color: #ffffff;
   &:hover {
     background-color: #181f3c;
   }
-  ${({ buttonType }) => (buttonType === 'ghost' ? getGhostButtonStyles() : null)}
+  ${({ buttonType }) => (buttonType === 'ghost' ? getGhostButtonStyles() : getDefaultButtonStyles())}
 `
 
 export const Icon = styled(AiFillMessage)`
