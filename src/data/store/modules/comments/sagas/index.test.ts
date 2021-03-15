@@ -48,6 +48,7 @@ describe('GetCommentsSaga', () => {
     expect(saga.next(data).value).toStrictEqual(
       put(Actions.GetCommentsSuccess(newData))
     )
+    expect(saga.next().done).toBe(true)
   })
   it('should call failure action when receives error', () => {
     const saga = mockSaga()
