@@ -39,7 +39,7 @@ export function LoadComments(
   }
 }
 
-export function RemovePost(params: RemovePost.Params): RemovePostAction {
+export function RemovePostRequest(params: RemovePost.Params): RemovePostAction {
   return {
     type: ActionTypes.REMOVE_POST,
     payload: { params },
