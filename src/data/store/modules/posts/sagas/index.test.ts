@@ -2,8 +2,10 @@ import { call, put } from 'redux-saga/effects'
 import { GetPostsSaga } from '.'
 import * as Actions from '../actions'
 import { httpClient } from 'infra/http/httpClient'
-import { getPosts, GetPostsProtocol } from 'data/http/services'
+import { getPosts, GetPostsProtocol, getUsers } from 'data/http/services'
 import { HttpRequest, HttpResponse, StatusCode } from 'data/http/protocol'
+import { adaptData } from './Adapter'
+import { findPostAuthorByUserId } from 'utils'
 
 const mockSaga = () => {
   const saga = GetPostsSaga()
@@ -28,7 +30,10 @@ describe('GetPostsSaga', () => {
   it('should call success action when receives data', async () => {
     const saga = mockSaga()
     saga.next()
-    const data = await getPosts(httpClientSpy)
+    const posts = await getPosts(httpClientSpy)
+    expect(saga.next(posts).value).toStrictEqual(call(getUsers, httpClient))
+    const users = await getUsers(httpClientSpy)
+    const data = adaptData(posts, users, findPostAuthorByUserId)
     expect(saga.next(data).value).toStrictEqual(
       put(Actions.GetPostsSuccess(data))
     )
