@@ -8,6 +8,7 @@ import {
 } from 'presentation/components'
 import * as PostsHooks from 'presentation/hooks/posts'
 import * as CommentsHooks from 'presentation/hooks/comments'
+import * as UsersHooks from 'presentation/hooks/users'
 import * as S from './styles'
 
 const Posts: React.FC = () => {
@@ -15,8 +16,12 @@ const Posts: React.FC = () => {
   const { isLoading: isLoadingComments } = CommentsHooks.useCommentsSelector()
   const { getPosts } = PostsHooks.usePostsDispatch()
   const { getComments } = CommentsHooks.useCommentsDispatch()
+  const { getUsers } = UsersHooks.useUsersDispatch()
 
-  useEffect(() => getPosts(), [])
+  useEffect(() => {
+    getPosts()
+    getUsers()
+  }, [])
 
   const [openPostId, setOpenPostId] = useState<number | null>(null)
 

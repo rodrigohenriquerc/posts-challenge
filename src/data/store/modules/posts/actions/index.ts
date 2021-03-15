@@ -1,10 +1,12 @@
 import { GetComments, GetPosts } from 'domains/posts/usecases'
+import { RemovePost } from 'domains/posts/usecases/RemovePost'
 import {
   ActionTypes,
   RequestAction,
   SuccessAction,
   FailureAction,
   LoadCommentsAction,
+  RemovePostAction,
 } from '../types'
 
 export function GetPostsRequest(): RequestAction {
@@ -34,5 +36,12 @@ export function LoadComments(
   return {
     type: ActionTypes.LOAD_COMMENTS,
     payload: { postId, data },
+  }
+}
+
+export function RemovePostRequest(params: RemovePost.Params): RemovePostAction {
+  return {
+    type: ActionTypes.REMOVE_POST,
+    payload: { params },
   }
 }

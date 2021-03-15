@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { GetPostsRequest } from 'data/store/modules/posts/actions'
+import { GetPostsRequest, RemovePostRequest } from 'data/store/modules/posts/actions'
 
 export default function usePostsDispatch() {
   const dispatch = useDispatch()
@@ -8,5 +8,9 @@ export default function usePostsDispatch() {
     dispatch(GetPostsRequest())
   }
 
-  return { getPosts }
+  const removePost = (postId: number) => {
+    dispatch(RemovePostRequest({ postId }))
+  }
+
+  return { getPosts, removePost }
 }

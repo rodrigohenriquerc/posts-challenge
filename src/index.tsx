@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import App from './main/App'
 import reportWebVitals from './reportWebVitals'
 
+require('dotenv').config()
+
 if (process.env.NODE_ENV === 'development') {
   const { worker } = require('./data/http/mocks/browser')
   worker.start()

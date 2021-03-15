@@ -1,3 +1,11 @@
-import { postsHandlers, commentsHandlers } from 'data/http/services'
+import {
+  postsHandlers,
+  commentsHandlers,
+  usersHandlers,
+} from 'data/http/services'
 
-export const handlers = [...postsHandlers, ...commentsHandlers]
+export const handlers = [
+  ...postsHandlers,
+  ...commentsHandlers,
+  ...usersHandlers,
+]
