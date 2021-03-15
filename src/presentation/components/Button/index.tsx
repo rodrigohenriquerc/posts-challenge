@@ -5,11 +5,12 @@ import { IButton } from './models'
 const Button: React.FC<IButton> = ({
   title,
   type = 'normal',
+  icon,
   onClick,
 }: IButton) => (
-  <S.Container buttonType={type} onClick={onClick}>
+  <S.Container data-testid="button" buttonType={type} onClick={onClick}>
     {title}
-    {type === 'ghost' ? <S.Icon /> : null}
+    {icon}
   </S.Container>
 )
 

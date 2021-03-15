@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { AiFillMessage } from 'react-icons/ai'
 import { ButtonType } from './models'
 
 interface IStyledButton {
@@ -16,7 +15,7 @@ const getDefaultButtonStyles = () => `
   font-weight: 600;
   &:hover {
     background-color: #181f3c;
-  }
+  };
 `
 
 const getGhostButtonStyles = () => `
@@ -39,8 +38,4 @@ export const Container = styled.button<IStyledButton>`
     background-color: #181f3c;
   }
   ${({ buttonType }) => (buttonType === 'ghost' ? getGhostButtonStyles() : getDefaultButtonStyles())}
-`
-
-export const Icon = styled(AiFillMessage)`
-  margin-left: 0.25rem;
 `
