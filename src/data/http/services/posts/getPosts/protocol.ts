@@ -1,8 +1,9 @@
-export type Data = Post[]
-
-export interface Post {
-  id: number
-  author: string
-  title: string
-  description: string
+export declare namespace GetPostsProtocol {
+  export interface Post {
+    id: number
+    author: string
+    title: string
+    description: string
+  }
+  export type Data = Post[]
 }

@@ -2,7 +2,7 @@ import { all, takeLatest, put, call } from 'redux-saga/effects'
 import { ActionTypes } from '../types'
 import * as Actions from '../actions'
 import { httpClient } from 'infra/http/httpClient'
-import { Data, getPosts } from 'data/http/services'
+import { getPosts } from 'data/http/services'
 
 export function* GetPostsSaga(): Generator<any, unknown, any> {
   try {

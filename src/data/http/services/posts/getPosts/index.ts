@@ -1,7 +1,9 @@
 import { HttpClient } from 'data/http/protocol'
-import { Data } from './protocol'
+import { GetPostsProtocol } from './protocol'
 
-export const getPosts = async (httpClient: HttpClient): Promise<Data> => {
+export const getPosts = async (
+  httpClient: HttpClient
+): Promise<GetPostsProtocol.Data> => {
   try {
     const { data } = await httpClient({
       url: 'https://jsonplaceholder.api/posts',
