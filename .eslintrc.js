@@ -19,5 +19,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'import/order': 0,
     'global-require': 0,
+    'no-undef': 0,
   },
 }
