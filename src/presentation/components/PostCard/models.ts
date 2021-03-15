@@ -6,6 +6,6 @@ export interface IPostCard {
   title: string
   description: string
   comments: Comment[]
-  onLoadComments: (id: number) => void
-  openPostId: number | null
+  onLoadComments: (postId: number) => void
+  checkIfIsOpen: (postId: number) => boolean
 }

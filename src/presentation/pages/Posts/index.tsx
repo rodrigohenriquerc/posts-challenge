@@ -12,6 +12,7 @@ import * as S from './styles'
 
 const Posts: React.FC = () => {
   const { data, isLoading } = PostsHooks.usePostsSelector()
+  const { isLoading: isLoadingComments } = CommentsHooks.useCommentsSelector()
   const { getPosts } = PostsHooks.usePostsDispatch()
   const { getComments } = CommentsHooks.useCommentsDispatch()
 
@@ -26,6 +27,17 @@ const Posts: React.FC = () => {
     } else {
       setOpenPostId(null)
     }
+  }
+
+  const checkIfPostHasComments = (postId: number) => {
+    return data.some((post) => post.id === postId && post.comments.length > 0)
+  }
+
+  const checkIfPostIsOpen = (postId: number) => {
+    const postHasComments = checkIfPostHasComments(postId)
+    const postIsSelected = postId === openPostId
+    const commentsAreNotLoading = !isLoadingComments
+    return postIsSelected && commentsAreNotLoading && postHasComments
   }
 
   return (
@@ -49,7 +61,7 @@ const Posts: React.FC = () => {
                   description={post.description}
                   comments={post.comments}
                   onLoadComments={loadComments}
-                  openPostId={openPostId}
+                  checkIfIsOpen={checkIfPostIsOpen}
                 />
               </S.ListItem>
             ))}

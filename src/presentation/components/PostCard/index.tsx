@@ -10,8 +10,9 @@ const PostCard: React.FC<IPostCard> = ({
   description,
   comments,
   onLoadComments,
-  openPostId,
+  checkIfIsOpen,
 }: IPostCard) => {
+  const isOpen = checkIfIsOpen(id)
   return (
     <S.Container data-testid="post-card">
       <S.ContainerAuthor>
@@ -26,7 +27,7 @@ const PostCard: React.FC<IPostCard> = ({
         icon={<S.Icon />}
         onClick={() => onLoadComments(id)}
       />
-      {id === openPostId ? (
+      {isOpen ? (
         <S.CommentsSection>
           <S.List>
             {comments.map((comment, i) => (

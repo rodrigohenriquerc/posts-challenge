@@ -6,6 +6,7 @@ import { IPostCard } from './models'
 describe('PostCard', () => {
   it('should render with author, title and description', () => {
     const mockFn = jest.fn()
+    const checkIfIsOpen = (postId: number) => true
     const props: IPostCard = {
       id: 1,
       author: 'Rodrigo Henrique',
@@ -13,6 +14,7 @@ describe('PostCard', () => {
       description: 'random_description',
       comments: [],
       onLoadComments: mockFn,
+      checkIfIsOpen,
     }
     const { getByTestId } = render(
       <PostCard
@@ -22,6 +24,7 @@ describe('PostCard', () => {
         description={props.description}
         comments={props.comments}
         onLoadComments={props.onLoadComments}
+        checkIfIsOpen={props.checkIfIsOpen}
       />
     )
     const component = getByTestId('post-card')
