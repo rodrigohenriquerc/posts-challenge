@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react'
-import { Form, TextField, PostCard, Loading } from 'presentation/components'
+import {
+  Form,
+  TextField,
+  Button,
+  PostCard,
+  Loading,
+} from 'presentation/components'
 import { IPostCard } from 'presentation/components/PostCard/models'
 import * as PostsHooks from 'presentation/hooks/posts'
 import * as S from './styles'
@@ -19,6 +25,7 @@ const Posts: React.FC = () => {
           <Form>
             <TextField placeholder="Título" />
             <TextField placeholder="Compartilhe suas ideias." long />
+            <Button title="Enviar" onClick={() => {}} />
           </Form>
           <S.List>
             {data.map((post: IPostCard) => (
