@@ -2,7 +2,7 @@ import { call, put } from 'redux-saga/effects'
 import { GetPostsSaga } from '.'
 import * as Actions from '../actions'
 import { httpClient } from 'infra/http/httpClient'
-import { Data, getPosts } from 'data/http/services'
+import { getPosts, GetPostsProtocol } from 'data/http/services'
 import { HttpRequest, HttpResponse, StatusCode } from 'data/http/protocol'
 
 const mockSaga = () => {
@@ -10,7 +10,7 @@ const mockSaga = () => {
   return saga
 }
 
-const dataMock: Data = []
+const dataMock: GetPostsProtocol.Data = []
 
 const httpClientSpy = (httpRequest: HttpRequest): Promise<HttpResponse> => {
   const response: HttpResponse = {
@@ -32,6 +32,7 @@ describe('GetPostsSaga', () => {
     expect(saga.next(data).value).toStrictEqual(
       put(Actions.GetPostsSuccess(data))
     )
+    expect(saga.next().done).toBe(true)
   })
   it('should call failure action when receives error', () => {
     const saga = mockSaga()
