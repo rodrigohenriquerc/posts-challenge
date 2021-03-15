@@ -1,4 +1,4 @@
-import { Post, Comment } from 'domains/posts/models'
+import { Comment } from 'domains/posts/models'
 
 export type GetComments = (
   params: GetComments.Params
@@ -6,7 +6,7 @@ export type GetComments = (
 
 export declare namespace GetComments {
   export interface Params {
-    postId: Pick<Post, 'id'>
+    postId: number
   }
 
   export type Data = Comment[]
