@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { PostCard, Loading } from 'presentation/components'
+import { Form, TextField, PostCard, Loading } from 'presentation/components'
 import { IPostCard } from 'presentation/components/PostCard/models'
 import * as PostsHooks from 'presentation/hooks/posts'
 import * as S from './styles'
@@ -15,18 +15,24 @@ const Posts: React.FC = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <S.List>
-          {data.map((post: IPostCard) => (
-            <S.ListItem key={post.id}>
-              <PostCard
-                id={post.id}
-                author={post.author}
-                title={post.title}
-                description={post.description}
-              />
-            </S.ListItem>
-          ))}
-        </S.List>
+        <>
+          <Form>
+            <TextField placeholder="Título" />
+            <TextField placeholder="Compartilhe suas ideias." long />
+          </Form>
+          <S.List>
+            {data.map((post: IPostCard) => (
+              <S.ListItem key={post.id}>
+                <PostCard
+                  id={post.id}
+                  author={post.author}
+                  title={post.title}
+                  description={post.description}
+                />
+              </S.ListItem>
+            ))}
+          </S.List>
+        </>
       )}
     </S.Container>
   )

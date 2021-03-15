@@ -15,6 +15,7 @@ export const Container = styled.div<{ isLoading: boolean }>`
 
 export const List = styled.ul`
   max-width: 768px;
+  margin-top: 1rem;
 `
 
 export const ListItem = styled.li`
