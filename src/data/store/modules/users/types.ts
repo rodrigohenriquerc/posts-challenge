@@ -23,7 +23,7 @@ export interface FailureAction {
 
 export type Action = RequestAction | SuccessAction | FailureAction
 
-export interface PostsState {
+export interface UsersState {
   data: User[]
   error: string | null
   isLoading: boolean
