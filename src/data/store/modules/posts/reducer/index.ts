@@ -39,6 +39,15 @@ const PostsReducer = (state = INITIAL_STATE, action: Action) => {
         error: null,
         isLoading: false,
       }
+    case ActionTypes.REMOVE_POST:
+      return {
+        ...state,
+        data: state.data.filter(
+          (post) => post.id !== action.payload.params.postId
+        ),
+        error: null,
+        isLoading: false,
+      }
     default:
       return state
   }
