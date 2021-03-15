@@ -21,6 +21,7 @@ const PostCard: React.FC<IPostCard> = ({
       <Button
         title="Comentários"
         type="ghost"
+        icon={<S.Icon />}
         onClick={() => setIsCommentsSectionOpen(!isCommentsSectionOpen)}
       />
       {isCommentsSectionOpen ? (

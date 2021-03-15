@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { AiFillMessage } from 'react-icons/ai'
 
 export const Container = styled.div`
   width: 100%;
@@ -36,6 +37,10 @@ export const Description = styled.p`
   color: #ffffff;
   font-weight: 300;
   line-height: 1.5rem;
+`
+
+export const Icon = styled(AiFillMessage)`
+  margin-left: 0.25rem;
 `
 
 export const CommentsSection = styled.div`
