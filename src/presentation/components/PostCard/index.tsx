@@ -20,6 +20,7 @@ const PostCard: React.FC<IPostCard> = ({
       <S.Description>{description}</S.Description>
       <Button
         title="Comentários"
+        type="ghost"
         onClick={() => setIsCommentsSectionOpen(!isCommentsSectionOpen)}
       />
       {isCommentsSectionOpen ? (

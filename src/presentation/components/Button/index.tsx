@@ -2,10 +2,14 @@ import React from 'react'
 import * as S from './styles'
 import { IButton } from './models'
 
-const Button: React.FC<IButton> = ({ title, onClick }: IButton) => (
-  <S.Container onClick={onClick}>
+const Button: React.FC<IButton> = ({
+  title,
+  type = 'normal',
+  onClick,
+}: IButton) => (
+  <S.Container buttonType={type} onClick={onClick}>
     {title}
-    <S.Icon />
+    {type === 'ghost' ? <S.Icon /> : null}
   </S.Container>
 )
 
